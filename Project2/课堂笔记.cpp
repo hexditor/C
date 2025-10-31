@@ -122,3 +122,93 @@ return ++x
 即，当从标准输入成功读取数据到变量时，循环继续；否则，循环停止。
 */
 
+//cin.eof()
+/*
+`cin.eof()` 是 C++ 标准输入流（`cin`）中用来判断输入流（通常是标准输入/键盘）是否到达“文件结束”（EOF, End Of File）标志的方法。
+-当输入流遇到文件结束标志（EOF）时，`cin.eof()` 返回 `true`，否则返回 `false`。
+
+- 在读取文件时，EOF 表示已经读到文件末尾，没有更多内容可读。
+- 在键盘输入时，用户可以通过特定的键盘操作输入 EOF：
+  - Windows：按下 `Ctrl+Z` 然后回车
+  - Linux/Mac：按下 `Ctrl+D`
+
+用法:
+
+1. 循环读取输入直到 EOF
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    while (cin >> num) {
+        cout << "输入的是：" << num << endl;
+    }
+    // 当遇到EOF时，cin会进入失败状态，循环结束
+    if (cin.eof()) {
+        cout << "遇到文件结尾（EOF）!" << endl;
+    }
+    return 0;
+}
+
+ 2. 用 cin.eof() 判断是否为 EOF
+
+一般不建议用 `while (!cin.eof())`，因为只有在尝试读取数据失败后，`eof()` 才会变为 `true`，而不是提前变为 `true`。
+
+**错误用法示例：
+
+```cpp
+// 不推荐这样用
+while (!cin.eof()) {
+    int x;
+    cin >> x;
+    // ... 这样最后一次读取会读到EOF，但x的值未定义
+}
+推荐用法：
+
+直接用流的返回值作为判断条件：
+
+int x;
+while (cin >> x) {
+    // 处理x
+}
+
+
+如果需要在循环外判断是否是因为EOF导致退出，可以用 `cin.eof()`：
+
+if (cin.eof()) {
+    cout << "输入结束（EOF）" << endl;
+}
+
+cin.eof() 的常见场景: 
+
+- **文件输入**：处理文件时判断是否到达文件结尾。
+- **多组数据输入**：在线评测或批量处理数据时，循环读取直到EOF。
+- **交互式输入**：用户输入数据后用EOF结束输入。
+
+
+注意事项: 
+
+1. **只有在读取失败后，eof() 才会变为 true。**
+   - 例如，`cin >> x` 读取失败（到达EOF），此时 `cin.eof()` 为真。
+2. **不要把 `while(!cin.eof())` 作为循环条件。
+   - 推荐用 `while (cin >> x)`。
+3. **判断是否因为 EOF 退出循环，可以在循环后用 `cin.eof()` 检查**。
+
+示例：
+统计输入的所有整数之和，直到EOF
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int sum = 0, x;
+    while (cin >> x) {
+        sum += x;
+    }
+    cout << "总和: " << sum << endl;
+    if (cin.eof()) {
+        cout << "遇到EOF，输入结束。" << endl;
+    }
+    return 0;
+}
+*/
