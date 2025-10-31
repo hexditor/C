@@ -978,6 +978,26 @@ int result = (*funcPtr)(3, 5);
 	- 参数顺序不同
 (4)函数重载不能仅通过返回值类型来区分，否则会导致编译错误。
 (5)函数重载可以提高代码的可读性和可维护性，但过度使用可能会导致代码复杂化，建议合理使用。
+例如
+#include <iostream>
+using namespace std;
+
+// 加法函数，重载了两种不同参数的版本
+int add(int a, int b) {
+    return a + b;
+}
+
+double add(double a, double b) {
+    return a + b;
+}
+
+int main() {
+    cout << add(2, 3) << endl;        
+// 调用int版本，输出5
+    cout << add(2.5, 3.7) << endl;    
+// 调用double版本，输出6.2
+    return 0;
+}
 
 
 
