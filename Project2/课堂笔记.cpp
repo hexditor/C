@@ -493,3 +493,44 @@ delete p;  //删除整型
 使用new 后，一定要使用delete, 否则会造成内存泄漏
 
 */
+
+//vector 
+/*
+需头文件<vector>
+
+1. 创建
+vector<int> vec1;              // 空vector，相当于指针
+vector<int> vec2(5, 10);       // 5个元素，每个都是10
+vector<int> vec2(10);       //10个元素，默认都是0
+vector<int> vec3 = {1, 2, 3};  // 初始化列表
+vector<int> vec4(vec3);        // 拷贝构造
+
+2. 访问
+vec[0] = 10;           // 下标访问（不检查边界）
+vec.at(1) = 20;        // 带边界检查的访问
+int first = vec.front(); // 第一个元素
+int last = vec.back();   // 最后一个元素
+a=b;                  //b赋值给a(复制)
+向量比较，同字符串比较法相同(==，!=，>=等等)
+从第一个元素开始，比较ASCII码
+ASCII码大的，向量较大
+如果相等，比较第二个元素
+ASCII码大的，向量较大
+以此类推
+比如ABCAA>ABCBBAAA
+
+3. 添加，删除元素
+vec.push_back(30);     // 在末尾添加元素
+vec.pop_back();        // 删除末尾元素
+vec.insert(vec.begin() + 1, 25); // 在指定位置插入
+vec.erase(vec.begin() + 2);      // 删除指定位置元素
+vec.clear();           // 清空所有元素
+vec.insert(vec.begin, arr.begin, vec.end) //在arr.begin之前插入从vec.begin到vec.end之间的所有元素
+
+4. 容量操作
+int size = vec.size();         // 当前元素个数
+bool empty = vec.empty();      // 判断是否为空
+vec.resize(10);               // 调整大小
+int capacity = vec.capacity(); // 当前容量
+vec.reserve(100);             // 预分配空间
+*/
