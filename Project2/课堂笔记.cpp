@@ -554,7 +554,8 @@ a+=b;        //把b拼接在a后面
 a=b;         //把b赋值给a
 name.find(c) //查找字符c, 返回第一次出现的下标
 s.find(c,idx)//从s[idx]开始查找字符c, 返回第一次出现的下标
+
 reverse(str.begin(), str.end());
-//反转字符串
+//反转字符串(需头文件<algorithm>)
 */
 
