@@ -559,7 +559,7 @@ char str1[]="student";
 char ch[80]; //只能存储79个字符，第80个用于存放'\0'
 想输入带有空格的字符串，不能用cin，要用cin.get
 2.串处理函数(需头文件<cstring>)
-strlen(str)        //求串长(包括'\0')
+strlen(str)        //求串长(不包括'\0')
 strcpy_s(des, str) //把str复制给des
 strcmp(a, b).      //串比较，相等返回0，a大于b返回正数，a小于b返回负数
 3. string
